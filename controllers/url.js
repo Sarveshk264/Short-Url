@@ -1,7 +1,6 @@
 const shortid = require('shortid');
 const URL = require("../models/url.js");
 
-
 async function handleGenrateNewShortUrl(req, res){
     const body = req.body;
     if (!body.url) {
@@ -17,9 +16,8 @@ async function handleGenrateNewShortUrl(req, res){
         visitHistory: []
     });
 
-    return res.json({shortId: shortId});
+    return res.render("home.ejs", {id: shortId,});
 }
-
 async function handleGetAnalytics(req, res) {
     try {
         const { shortId } = req.params;
